@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+ <meta charset="UTF-8">
+ <title>Catálogo de Produtos</title>
+</head>
+<body>
+ <h1>Catálogo de Produtos</h1>
+ <p>Escolha uma categoria de produtos:</p>
+ <!--
+ O formulário envia a categoria escolhida
+ para a rota /pesquisar.
+ -->
+ <form action="/pesquisar" method="POST">
+ <label for="categoria">Categoria:</label>
+ <select name="categoria" id="categoria">
+ <option value="Electronics">Eletrônicos</option>
+ <option value="Clothing">Roupas</option>
+ <option value="Home &amp; Garden">Casa e Jardim</option>
+ <option value="Sports">Esportes</option>
+ <option value="Books">Livros</option>
+ <option value="Toys">Brinquedos</option>
+ <option value="Beauty">Beleza</option>
+ <option value="Automotive">Automotivo</option>
+ <option value="Health">Saúde</option>
+ <option value="Food &amp; Beverage">Alimentos e Bebidas</option>
+ <option value="Jewelry">Joias</option>
+ <option value="Office Supplies">Material de Escritório</option>
+ <option value="Pet Supplies">Produtos para Pets</option>
+ <option value="Music">Música</option>
+ <option value="Art">Arte</option>
+ </select>
+ <button type="submit">Pesquisar</button>
+ </form>
+</body>
+</html>

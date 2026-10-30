@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+ <meta charset="UTF-8">
+ <title>Resultado da pesquisa</title>
+</head>
+<body>
+ <h1>Resultado da pesquisa</h1>
+ <p>Categoria pesquisada: {{ categoria }}</p>
+ <p>Quantidade de produtos encontrados: {{ quantidade }}</p>
+ {% if quantidade > 0 %}
+ <p>Menor preço: {{ menor.nome }} (${{ "%.2f"|format(menor.preco) }})</p>
+ <p>Maior preço: {{ maior.nome }} (${{ "%.2f"|format(maior.preco) }})</p>
+ <p>Preço médio: ${{ "%.2f"|format(media) }}</p>
+ {% if melhor %}
+ <p>Melhor avaliação: {{ melhor.nome }} ({{ melhor.avaliacao }})</p>
+ {% else %}
+ <p>Melhor avaliação: não disponível</p>
+ {% endif %}
+ {% for produto in produtos %}
+ <hr>
+ <h3>Produto {{ loop.index }}</h3>
+ <p>Nome: {{ produto.nome }}</p>
+ <p>Preço: ${{ "%.2f"|format(produto.preco) }}</p>
+ <p>Categoria: {{ produto.categoria }}</p>
+ <p>Avaliação: {% if produto.avaliacao is not none %}{{ produto.avaliacao }}{% else %}não disponível{% endif %}</p>
+ <p>Link: <a href="{{ produto.link }}">{{ produto.link }}</a></p>
+ {% endfor %}
+ {% else %}
+ <p>Nenhum produto encontrado nesta categoria.</p>
+ {% endif %}
+ <p><a href="/">Nova pesquisa</a></p>
+</body>
+</html>
